@@ -22,8 +22,8 @@ class RTGM {
 	const UPSAMPLING_FACTOR = 1.05;
 
 	public $hazCurve;
-	public $riskCoeff = NAN;
-	public $rtgm = NAN;
+	public $riskCoeff = null;
+	public $rtgm = null;
 	public $rtgmIters = null;
 	public $riskIters = null;
 	public $sa = null;
@@ -99,7 +99,7 @@ class RTGM {
 		$this->jsonStructure['upsampledHazardCurve'] = $upsampHazCurve;
 		$this->jsonStructure['originalHCMin'] = min($this->hazCurve->xs);
 		$this->jsonStructure['originalHCMax'] = max($this->hazCurve->xs);
-		$errorRatio = NAN;
+		$errorRatio = null;
 
 		// Iterative calculation of RTGM
 		for ($i = 0; $i < self::MAX_ITERATIONS; $i++) {
@@ -142,7 +142,7 @@ class RTGM {
 		}
 
 		if ($errorRatio != 1) {
-			$this->rtgm = NAN;
+			$this->rtgm = null;
 		} else {
 			$this->rtgm = $this->rtgmIters[count($this->rtgmIters) - 1];
 		}

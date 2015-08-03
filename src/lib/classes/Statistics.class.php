@@ -282,7 +282,7 @@ class Statistics {
 		$half_log_2_pi = 0.5 * log(2.0 * M_PI);
 		$lanczos_g = 607.0 / 128.0;
 		if (is_nan($x) || ($x <= 0.0)) {
-			$ret = NAN;
+			$ret = null;
 		} else if ($x < 0.5) {
 			return Statistics::logGamma1p($x) - log($x);
 		} else if ($x <= 2.5) {
@@ -323,7 +323,7 @@ class Statistics {
 		$maxIterations) {
 		$ret;
 		if (is_nan($a) || is_nan($x) || ($a <= 0.0) || ($x < 0.0)) {
-			$ret = NAN;
+			$ret = null;
 		} else if ($x == 0.0) {
 			$ret = 0.0;
 		} else if ($x >= $a + 1) {
@@ -365,7 +365,7 @@ class Statistics {
 	public static function regularizedGammaQ ($a, $x, $epsilon,
 		$maxIterations) {
 		if (is_nan($a) || is_nan($x) || ($a <= 0.0) || ($x < 0.0)) {
-			$ret = NAN;
+			$ret = null;
 		} else if ($x == 0.0) {
 			$ret = 1.0;
 		} else if ($x < $a + 1.0) {
